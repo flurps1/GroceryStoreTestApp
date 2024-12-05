@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="SampleTestApp/App.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+        <entry key="SampleTestApp/MainWindow.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+        <entry key="SampleTestApp/Shell/Pages/Cart/CartView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+        <entry key="SampleTestApp/Shell/Pages/Home/HomeView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+        <entry key="SampleTestApp/Shell/Pages/Profile/ProfileView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+        <entry key="SampleTestApp/Shell/Pages/Shop/ShopView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+        <entry key="SampleTestApp/Shell/ShellView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+        <entry key="SampleTestApp/Views/MainWindow.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
