@@ -12,7 +12,7 @@ public partial class MainWindowViewModel : ViewModelBase
     private readonly PageFactory _pageFactory;
     [ObservableProperty] private MenuItem? _selectedItem;
     [ObservableProperty] private PageViewModel? _currentPage;
-    [ObservableProperty] private bool _isMinimal = true;
+    [ObservableProperty] private bool _isMinimal;
     
     public MainWindowViewModel(PageFactory pageFactory)
     {

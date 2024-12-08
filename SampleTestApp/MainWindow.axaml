@@ -15,11 +15,16 @@
                                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                                  MenuItemsSource="{Binding Items}"
                                  MenuItemTemplateSelector="{x:Static sampleTestApp:MenuItemTemplateSelector.Instance}">
-              
-            <Panel>
-            <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                            Content="{CompiledBinding CurrentPage}" />
-        </Panel>
+            <StackPanel>
+                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#4e4e4e">
+                    <ContentControl.Content>
+                        <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
+                        <TextBlock Text="{Binding CurrentPage.PageName}"/>
+                    </ContentControl.Content>
+                </ContentControl>
+                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                Content="{CompiledBinding CurrentPage}" />
+        </StackPanel>
         </controls:NavigationView>
     </DockPanel>
 </Window>
