@@ -1,40 +1,43 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using Avalonia.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Material.Icons;
 
 namespace SampleTestApp;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    private PageFactory _pageFactory;
+    private readonly PageFactory _pageFactory;
+    [ObservableProperty] private MenuItem? _selectedItem;
+    [ObservableProperty] private PageViewModel? _currentPage;
+    [ObservableProperty] private bool _isMinimal = true;
     
-    [ObservableProperty] private bool _sideMenuExpanded = true;
-    
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(HomePageIsActive))]
-    [NotifyPropertyChangedFor(nameof(ShopPageIsActive))]
-    [NotifyPropertyChangedFor(nameof(CartPageIsActive))]
-    [NotifyPropertyChangedFor(nameof(ProfilePageIsActive))]
-    private PageViewModel _currentPage;
-    
-    public bool HomePageIsActive => CurrentPage.PageName == ApplicationPageNames.Home;
-    public bool ProfilePageIsActive => CurrentPage.PageName == ApplicationPageNames.Shop;
-    public bool CartPageIsActive => CurrentPage.PageName == ApplicationPageNames.Cart;
-    public bool ShopPageIsActive => CurrentPage.PageName == ApplicationPageNames.Profile;
-
     public MainWindowViewModel(PageFactory pageFactory)
     {
         _pageFactory = pageFactory;
-        GoToHome();
+
+        Items = new ObservableCollection<MenuItem>
+        {
+            new(ApplicationPageNames.Shop, "Shop", MaterialIconKind.Storefront),
+            new(ApplicationPageNames.Cart, "Cart", MaterialIconKind.ShoppingCart),
+            new(ApplicationPageNames.Profile, "Profile", MaterialIconKind.Person)
+        };
+        SelectedItem = Items.First();
+        CurrentPage = _pageFactory.GetPageViewModel(SelectedItem.PageName);
     }
-    
-    [RelayCommand]
-    private void SideMenuResize()
+
+    partial void OnSelectedItemChanged(MenuItem? value)
     {
-        SideMenuExpanded = !SideMenuExpanded;
+        if (value is null) return;
+        CurrentPage = _pageFactory.GetPageViewModel(value.PageName);
+    }
+
+    partial void OnIsMinimalChanged(bool value)
+    {
+        IsMinimal = !value;
     }
     
-    [RelayCommand] private void GoToHome() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Home);
-    [RelayCommand] private void GoToCart() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Shop);
-    [RelayCommand] private void GoToShop() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Cart);
-    [RelayCommand] private void GoToProfile() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPageNames.Profile);
+    public ObservableCollection<MenuItem> Items { get; }
 }
