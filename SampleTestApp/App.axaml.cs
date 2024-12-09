@@ -21,6 +21,7 @@ public partial class App : Application
         
         collection.AddSingleton(new HttpClient());
         collection.AddSingleton<ProductServices.IProductService, ProductServices.ProductService>();
+        collection.AddSingleton<ICartService, CartService>();
         
         collection.AddSingleton<MainWindowViewModel>();
         collection.AddSingleton<ShopViewModel>();

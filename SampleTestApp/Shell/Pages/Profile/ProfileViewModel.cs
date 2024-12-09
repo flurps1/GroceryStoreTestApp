@@ -2,7 +2,7 @@
 
 namespace SampleTestApp;
 
-public class ProfileViewModel : PageViewModel
+public partial class ProfileViewModel : PageViewModel
 {
     public ProfileViewModel()
     {

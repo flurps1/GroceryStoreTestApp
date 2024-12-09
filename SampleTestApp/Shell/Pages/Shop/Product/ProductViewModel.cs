@@ -9,7 +9,7 @@ public partial class ProductViewModel : PageViewModel
 {
     public string Name { get; }
     public string IconPath { get; }
-    
+
     [ObservableProperty]
     private int _quantity;
 
@@ -20,12 +20,5 @@ public partial class ProductViewModel : PageViewModel
         Quantity = quantity;
     }
 
-    [RelayCommand]
-    private void Buy()
-    {
-        if (Quantity > 0)
-        {
-            Quantity--; // Уменьшаем количество
-        }
-    }
+    public RelayCommand BuyCommand { get; set; }
 }
