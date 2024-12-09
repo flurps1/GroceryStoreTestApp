@@ -18,15 +18,13 @@ public partial class App : Application
     {
         var collection = new ServiceCollection();
         collection.AddSingleton<MainWindowViewModel>();
-        collection.AddTransient<HomeViewModel>();
-        collection.AddTransient<ShopViewModel>();
-        collection.AddTransient<CartViewModel>();
-        collection.AddTransient<ProfileViewModel>();
+        collection.AddSingleton<ShopViewModel>();
+        collection.AddSingleton<CartViewModel>();
+        collection.AddSingleton<ProfileViewModel>();
 
 
         collection.AddSingleton<Func<ApplicationPageNames, PageViewModel>>(x => name => name switch
         {
-            ApplicationPageNames.Home => x.GetRequiredService<HomeViewModel>(),
             ApplicationPageNames.Shop => x.GetRequiredService<ShopViewModel>(),
             ApplicationPageNames.Cart => x.GetRequiredService<CartViewModel>(),
             ApplicationPageNames.Profile => x.GetRequiredService<ProfileViewModel>(),

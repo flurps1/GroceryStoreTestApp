@@ -34,6 +34,7 @@
     <ItemGroup>
         <Folder Include="Services\"/>
         <Folder Include="Shell\Menu\"/>
+        <Folder Include="Shell\Pages\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -41,5 +42,16 @@
             <DependentUpon>MainWindow.axaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Shell\Pages\Home\HomeView.axaml" />
+      <UpToDateCheckInput Remove="Shell\Pages\Profile\ProfileView.axaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Shell\Pages\Cart\CartView.axaml" />
+      <AdditionalFiles Include="Shell\Pages\Profile\ProfileView.axaml" />
+      <AdditionalFiles Include="Shell\Pages\Shop\ShopView.axaml" />
     </ItemGroup>
 </Project>

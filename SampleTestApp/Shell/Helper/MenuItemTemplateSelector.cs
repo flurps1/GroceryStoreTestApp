@@ -10,7 +10,6 @@ namespace SampleTestApp;
 public class MenuItemTemplateSelector : DataTemplateSelector
 {
     private static readonly FuncDataTemplate<MenuItem> ItemTemplate;
-    private static readonly FuncDataTemplate<MenuItem> HeaderTemplate;
 
     static MenuItemTemplateSelector()
     {
@@ -18,12 +17,6 @@ public class MenuItemTemplateSelector : DataTemplateSelector
             new NavigationViewItem
             {
                 Content = item.Title,
-            });
-
-        HeaderTemplate = new FuncDataTemplate<MenuItem>((item, _) =>
-            new NavigationViewItemHeader
-            {
-                Content = item.Title
             });
     }
 

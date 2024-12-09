@@ -16,10 +16,14 @@
                                  MenuItemsSource="{Binding Items}"
                                  MenuItemTemplateSelector="{x:Static sampleTestApp:MenuItemTemplateSelector.Instance}">
             <StackPanel>
-                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="#4e4e4e">
+                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                Background="#4e4e4e" Margin="10" CornerRadius="10">
                     <ContentControl.Content>
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Current page is "/>
                         <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
                         <TextBlock Text="{Binding CurrentPage.PageName}"/>
+                        </StackPanel>
                     </ContentControl.Content>
                 </ContentControl>
                 <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
