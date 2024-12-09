@@ -8,6 +8,7 @@
         <entry key="SampleTestApp/Shell/Pages/Cart/CartView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
         <entry key="SampleTestApp/Shell/Pages/Home/HomeView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
         <entry key="SampleTestApp/Shell/Pages/Profile/ProfileView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+        <entry key="SampleTestApp/Shell/Pages/Shop/ProductCart.axaml" value="SampleTestApp/SampleTestApp.csproj" />
         <entry key="SampleTestApp/Shell/Pages/Shop/ShopView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
         <entry key="SampleTestApp/Shell/Profile/ProfileView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
         <entry key="SampleTestApp/Shell/ShellView.axaml" value="SampleTestApp/SampleTestApp.csproj" />

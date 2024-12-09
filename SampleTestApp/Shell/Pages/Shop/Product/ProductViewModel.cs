@@ -8,20 +8,18 @@ namespace SampleTestApp;
 public partial class ProductViewModel : PageViewModel
 {
     public string Name { get; }
-    public Image IconPath { get; }
+    public string IconPath { get; }
     
-    // Количество товара
     [ObservableProperty]
     private int _quantity;
 
-    public ProductViewModel(Image iconPath, string name, int quantity)
+    public ProductViewModel(string iconPath, string name, int quantity)
     {
         IconPath = iconPath;
         Name = name;
         Quantity = quantity;
     }
 
-    // Команда покупки
     [RelayCommand]
     private void Buy()
     {

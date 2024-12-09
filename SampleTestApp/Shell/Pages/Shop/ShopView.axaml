@@ -21,29 +21,11 @@
                 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="sampleTestApp:ProductViewModel">
-                        <Border BorderThickness="1"
-                                BorderBrush="Gray"
-                                CornerRadius="25"
-                                Padding="10"
-                                Margin="5"
-                                Width="250"
-                                Height="250">
-                            <StackPanel Orientation="Vertical">
-                                <Viewbox Width="130" Height="130" Stretch="Uniform" StretchDirection="Both">
-                                    <Image Source="../../../Assets/avalonia-logo.ico"></Image>
-                                </Viewbox>
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                    <TextBlock Text="{Binding Name}"
-                                               FontWeight="Bold"/>
-                                    <TextBlock Text="{Binding Quantity, StringFormat=' : {0} шт'}" />
-                                </StackPanel>
-                                
-                                <Button Content="Buy"
-                                        Command="{Binding BuyCommand}"
-                                        HorizontalAlignment="Stretch"
-                                        Margin="0,10,0,0" />
-                            </StackPanel>
-                        </Border>
+                        <sampleTestApp:ProductCard Icon="{Binding IconPath}"
+                                                   Title="{Binding Name}"
+                                                   Quantity="{Binding Quantity, StringFormat=' : {0} шт'}"
+                                                   Command="{Binding BuyCommand}"
+                            />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

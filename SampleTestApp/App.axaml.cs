@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -17,11 +18,15 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         var collection = new ServiceCollection();
+        
+        collection.AddSingleton(new HttpClient());
+        collection.AddSingleton<ProductServices.IProductService, ProductServices.ProductService>();
+        
         collection.AddSingleton<MainWindowViewModel>();
         collection.AddSingleton<ShopViewModel>();
         collection.AddSingleton<CartViewModel>();
         collection.AddSingleton<ProfileViewModel>();
-
+        
 
         collection.AddSingleton<Func<ApplicationPageNames, PageViewModel>>(x => name => name switch
         {
@@ -32,6 +37,7 @@ public partial class App : Application
         });
 
         collection.AddSingleton<PageFactory>();
+        collection.AddSingleton<IProductViewModelFactory, ProductViewModelFactory>();
 
         var provider = collection.BuildServiceProvider();
 

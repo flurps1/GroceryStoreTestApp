@@ -7,6 +7,5 @@ public class CartViewModel : PageViewModel
     public CartViewModel()
     {
         PageName = ApplicationPageNames.Cart;
-        Icon = MaterialIconKind.ShoppingCart;
     }
 }

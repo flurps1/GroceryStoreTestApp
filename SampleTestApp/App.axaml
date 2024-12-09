@@ -14,5 +14,6 @@
     <Application.Styles>
         <styling:FluentAvaloniaTheme PreferSystemTheme="True" PreferUserAccentColor="True" />
         <avalonia:MaterialIconStyles />
+        <StyleInclude Source="Tools/Controls/ProductCard.axaml"></StyleInclude>
     </Application.Styles>
 </Application>

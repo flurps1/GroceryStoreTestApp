@@ -20,8 +20,7 @@ internal sealed class Program
         // https://docs.avaloniaui.net/ru/docs/concepts/unhandledexceptions
         try
         {
-            BuildAvaloniaApp()
-                .StartWithClassicDesktopLifetime(args);
+            BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
         }
         catch (Exception e)
         {

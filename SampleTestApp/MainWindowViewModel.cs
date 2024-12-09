@@ -20,9 +20,9 @@ public partial class MainWindowViewModel : ViewModelBase
 
         Items = new ObservableCollection<MenuItem>
         {
-            new(ApplicationPageNames.Shop, "Shop", MaterialIconKind.Storefront),
-            new(ApplicationPageNames.Cart, "Cart", MaterialIconKind.ShoppingCart),
-            new(ApplicationPageNames.Profile, "Profile", MaterialIconKind.Person)
+            new(ApplicationPageNames.Shop, "Shop"),
+            new(ApplicationPageNames.Cart, "Cart"),
+            new(ApplicationPageNames.Profile, "Profile")
         };
         SelectedItem = Items.First();
         CurrentPage = _pageFactory.GetPageViewModel(SelectedItem.PageName);

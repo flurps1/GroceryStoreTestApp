@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -9,20 +10,29 @@ namespace SampleTestApp;
 
 public partial class ShopViewModel : PageViewModel
 {
-    [ObservableProperty]
-    private ObservableCollection<ProductViewModel> _products;
+    [ObservableProperty] private ObservableCollection<ProductViewModel> _products;
 
-    public ShopViewModel()
+    private readonly ProductServices.IProductService _productService;
+    private readonly IProductViewModelFactory _productViewModelFactory;
+
+    public ShopViewModel(ProductServices.IProductService productService,
+        IProductViewModelFactory productViewModelFactory)
     {
         PageName = ApplicationPageNames.Shop;
-        Icon = MaterialIconKind.Storefront;
+        _productService = productService;
+        _productViewModelFactory = productViewModelFactory;
 
-        Products =
-        [
-            new ProductViewModel(new Image(), "Бананы", 10),
-            new ProductViewModel(new Image(), "Яблоки", 20),
-            new ProductViewModel(new Image(), "Груши", 30),
-            new ProductViewModel(new Image(), "Помидоры", 40)
-        ];
+        Products = new ObservableCollection<ProductViewModel>();
+        _ = LoadProductsAsync();
+    }
+
+    private async Task LoadProductsAsync()
+    {
+        var productModels = await _productService.GetProductsAsync();
+        foreach (var product in productModels)
+        {
+            var productViewModel = _productViewModelFactory.Create(product.IconPath, product.Name, product.Quantity);
+            Products.Add(productViewModel);
+        }
     }
 }
