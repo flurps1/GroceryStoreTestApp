@@ -14,18 +14,18 @@
     <Grid RowDefinitions="Auto, *, Auto" Margin="10">
         <!-- Заголовок -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 10, 0, 10">
-            <TextBlock Text="Всего товаров:" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBlock Text="Total products: " FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,5,0"/>
             <TextBlock Text="{Binding TotalProducts}" VerticalAlignment="Center" />
         </StackPanel>
 
         <!-- Таблица с товарами -->
         <ScrollViewer Grid.Row="1">
-            <DataGrid ItemsSource="{Binding CartItems}" AutoGenerateColumns="False">
+            <DataGrid ItemsSource="{Binding CartItems}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="№" Binding="{Binding Index}" Width="50"/>
-                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="*"/>
-                    <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Width="100"/>
-                    <DataGridTemplateColumn Header="Наличие" Width="100">
+                    <DataGridTextColumn Header="#" Binding="{Binding Index}" Width="50" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity, Mode=TwoWay}" Width="100"/>
+                    <DataGridTemplateColumn Header="Available" Width="100">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <controls:SymbolIcon Symbol="{Binding AvailabilitySymbol}" Width="20" Height="20"/>

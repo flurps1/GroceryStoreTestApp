@@ -13,6 +13,7 @@
         <entry key="SampleTestApp/Shell/Profile/ProfileView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
         <entry key="SampleTestApp/Shell/ShellView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
         <entry key="SampleTestApp/Shell/Shop/ShopView.axaml" value="SampleTestApp/SampleTestApp.csproj" />
+        <entry key="SampleTestApp/Tools/Controls/ProductCard.axaml" value="SampleTestApp/SampleTestApp.csproj" />
         <entry key="SampleTestApp/Views/MainWindow.axaml" value="SampleTestApp/SampleTestApp.csproj" />
       </map>
     </option>
