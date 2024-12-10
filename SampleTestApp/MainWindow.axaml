@@ -15,14 +15,13 @@
                                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                                  MenuItemsSource="{Binding Items}"
                                  MenuItemTemplateSelector="{x:Static sampleTestApp:MenuItemTemplateSelector.Instance}">
-            <StackPanel>
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Top"
                                 Background="#4e4e4e" Margin="10" CornerRadius="10">
                     <ContentControl.Content>
                         <StackPanel Orientation="Horizontal" Margin="10">
-                        <TextBlock Text="Current page is "/>
                         <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
-                        <TextBlock Text="{Binding CurrentPage.PageName}"/>
+                        <TextBlock Text="{Binding CurrentPage.PageName, StringFormat=' Current page is {0}'}"/>
                         </StackPanel>
                     </ContentControl.Content>
                 </ContentControl>

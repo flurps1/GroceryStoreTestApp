@@ -4,21 +4,70 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:sampleTestApp="clr-namespace:SampleTestApp"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SampleTestApp.ProfileView">
+             x:Class="SampleTestApp.ProfileView"
+             x:DataType="sampleTestApp:ProfileViewModel">
     <Design.DataContext>
-        <sampleTestApp:ProfileViewModel/>
+        <sampleTestApp:ProfileViewModel />
     </Design.DataContext>
+
     <DockPanel>
-        <TextBlock Text="profile" />
-        <TextBlock Text="profile" />
-        <TextBlock Text="profile" />
-        <TextBlock Text="profile" />
-        <TextBlock Text="profile" />
-        <TextBlock Text="profile" />
-        <TextBlock Text="profile" />
-        <TextBlock Text="profile" />
-        <TextBlock Text="profile" />
-        <TextBlock Text="profile" />
+        <Grid ColumnDefinitions="3*,7*">
+            <StackPanel Margin="10" HorizontalAlignment="Center" Spacing="10">
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="30">
+                    <StackPanel>
+                    <Image Source="../../../Assets/png/profile-picture.png" Width="200" Height="200"/>
+                    <StackPanel>
+                        <TextBlock Text="{Binding FullName}" FontSize="16" FontWeight="Bold" TextAlignment="Center" />
+                        <TextBlock Text="{Binding Age, StringFormat='{}{0} лет'}" FontSize="14" TextAlignment="Center" />
+                    </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="10" Spacing="10">
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="15">
+                    <StackPanel Spacing="5">
+                    <Grid ColumnDefinitions="*, *">
+                        <StackPanel>
+                        <TextBlock Text="Имя: "/>
+                        <TextBlock Text="Фамилия: "/>
+                        <TextBlock Text="Отчество:"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                        <TextBlock Text="{Binding FirstName}"/>
+                        <TextBlock Text="{Binding LastName}"/>
+                        <TextBlock Text="{Binding MiddleName}"/>
+                        </StackPanel>
+                    </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="15">
+                    <Grid ColumnDefinitions="*, *">
+                        <StackPanel>
+                            <TextBlock Text="Телефон: "/>
+                            <TextBlock Text="Email: "/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <MaskedTextBox Mask="" Text="{Binding PhoneNumber}"/>
+                            <TextBox Text="{Binding Email}" IsReadOnly="True"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="15">
+                    <Grid ColumnDefinitions="*, *">
+                        <StackPanel>
+                            <TextBlock Text="Возраст: "/>
+                            <TextBlock Text="Баланс: "/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding Age, StringFormat=' {0} лет'}"/>
+                            <TextBlock Text="{Binding Balance, StringFormat=' {0}р'}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
     </DockPanel>
-    
 </UserControl>
