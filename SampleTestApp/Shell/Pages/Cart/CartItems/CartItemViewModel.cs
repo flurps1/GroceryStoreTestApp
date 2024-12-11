@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Avalonia.Media.Imaging;
+using CommunityToolkit.Mvvm.ComponentModel;
 using FluentAvalonia.UI.Controls;
 
 namespace SampleTestApp;
@@ -36,6 +37,8 @@ public partial class CartItemViewModel : ViewModelBase
             }
         }
     }
+    
+
 
     public Symbol AvailabilitySymbol => IsAvailable ? Symbol.Checkmark : Symbol.Cancel;
 

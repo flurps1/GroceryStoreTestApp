@@ -51,6 +51,7 @@
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <MaskedTextBox Mask="" Text="{Binding PhoneNumber}" IsEnabled="{Binding IsReadOnly}"/>
                             <TextBox Text="{Binding Email}" IsEnabled="{Binding IsReadOnly}"/>
+                            <!-- <sampleTestApp:CustomTextBox Text="{Binding Email}"/> -->
                         </StackPanel>
                     </Grid>
                 </Border>

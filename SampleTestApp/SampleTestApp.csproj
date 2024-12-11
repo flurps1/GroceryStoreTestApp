@@ -46,6 +46,9 @@
           <DependentUpon>ProductCard.axaml</DependentUpon>
           <SubType>Code</SubType>
         </Compile>
+        <Compile Update="Tools\Controls\CustomTextBox.cs">
+          <DependentUpon>CustomTextBox.axaml</DependentUpon>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>

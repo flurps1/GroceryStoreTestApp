@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -31,7 +32,7 @@ public partial class ShopViewModel : PageViewModel
         var productModels = await _productService.GetProductsAsync();
         foreach (var product in productModels)
         {
-            var productViewModel = _productViewModelFactory.Create(product.IconPath, product.Name, product.Quantity);
+            var productViewModel = _productViewModelFactory.Create(ImageHelper.LoadFromResource(new Uri(product.IconPath)), product.Name, product.Quantity);
             
             productViewModel.BuyCommand = new RelayCommand(() =>
             {

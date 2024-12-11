@@ -1,8 +1,10 @@
-﻿namespace SampleTestApp;
+﻿using Avalonia.Media.Imaging;
+
+namespace SampleTestApp;
 
 public class ProductViewModelFactory : IProductViewModelFactory
 {
-    public ProductViewModel Create(string iconPath, string name, int quantity)
+    public ProductViewModel Create(Bitmap iconPath, string name, int quantity)
     {
         return new ProductViewModel(iconPath, name, quantity);
     }
@@ -10,5 +12,5 @@ public class ProductViewModelFactory : IProductViewModelFactory
 
 public interface IProductViewModelFactory
 {
-    ProductViewModel Create(string iconPath, string name, int quantity);
+    ProductViewModel Create(Bitmap iconPath, string name, int quantity);
 }

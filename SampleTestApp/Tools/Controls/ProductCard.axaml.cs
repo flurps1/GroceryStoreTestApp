@@ -1,7 +1,9 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
+using Avalonia.Media.Imaging;
 
 namespace SampleTestApp;
 
@@ -25,10 +27,10 @@ public class ProductCard : TemplatedControl
         set => SetValue(QuantityProperty, value);
     }
 
-    public static readonly StyledProperty<string> IconProperty = AvaloniaProperty.Register<ProductCard, string>(
-        nameof(Icon), "/Assets/avalonia-logo.ico");
+    public static readonly StyledProperty<Bitmap> IconProperty = AvaloniaProperty.Register<ProductCard, Bitmap>(
+        nameof(Icon),  ImageHelper.LoadFromResource(new Uri("avares://SampleTestApp/Assets/png/banana.png")));
 
-    public string Icon
+    public Bitmap Icon
     {
         get => GetValue(IconProperty);
         set => SetValue(IconProperty, value);
