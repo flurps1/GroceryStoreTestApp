@@ -14,7 +14,7 @@ public partial class ProfileViewModel : PageViewModel
     [ObservableProperty] private string _phoneNumber;
     [ObservableProperty] private string _email;
     [ObservableProperty] private float _balance;
-    [ObservableProperty] private bool _isReadOnly = true; // Поля ввода по умолчанию заблокированы
+    [ObservableProperty] private bool _isReadOnly = true;
 
     public bool IsPhoneValid => Regex.IsMatch(PhoneNumber ?? string.Empty, @"^\+?\d{10,15}$");
     public bool IsEmailValid => Regex.IsMatch(Email ?? string.Empty, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");

@@ -44,26 +44,26 @@
 
                 <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="15">
                     <Grid ColumnDefinitions="*, *">
-                        <StackPanel>
+                        <StackPanel VerticalAlignment="Center">
                             <TextBlock Text="Телефон: "/>
                             <TextBlock Text="Email: "/>
                         </StackPanel>
-                        <StackPanel Grid.Column="1">
-                            <MaskedTextBox Mask="" Text="{Binding PhoneNumber}"/>
-                            <TextBox Text="{Binding Email}" IsReadOnly="True"/>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <MaskedTextBox Mask="" Text="{Binding PhoneNumber}" IsEnabled="{Binding IsReadOnly}"/>
+                            <TextBox Text="{Binding Email}" IsEnabled="{Binding IsReadOnly}"/>
                         </StackPanel>
                     </Grid>
                 </Border>
 
                 <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="15">
                     <Grid ColumnDefinitions="*, *">
-                        <StackPanel>
+                        <StackPanel VerticalAlignment="Center">
                             <TextBlock Text="Возраст: "/>
                             <TextBlock Text="Баланс: "/>
                         </StackPanel>
-                        <StackPanel Grid.Column="1">
-                            <TextBlock Text="{Binding Age, StringFormat=' {0} лет'}"/>
-                            <TextBlock Text="{Binding Balance, StringFormat=' {0}р'}"/>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBox Text="{Binding Age, StringFormat=' {0} лет'}" IsEnabled="{Binding IsReadOnly}"/>
+                            <TextBox Text="{Binding Balance, StringFormat=' {0}р'}" IsEnabled="{Binding IsReadOnly}"/>
                         </StackPanel>
                     </Grid>
                 </Border>
