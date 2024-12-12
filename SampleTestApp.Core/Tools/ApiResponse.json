@@ -1,0 +1,22 @@
+﻿[
+  {
+    "IconPath": "avares://SampleTestApp.Core/Assets/png/banana.png",
+    "Name": "Бананы",
+    "Quantity": 100
+  },
+  {
+    "IconPath": "avares://SampleTestApp.Core/Assets/png/apple.png",
+    "Name": "Яблоки",
+    "Quantity": 2
+  },
+  {
+    "IconPath": "avares://SampleTestApp.Core/Assets/png/pear.png",
+    "Name": "Груши",
+    "Quantity": 30
+  },
+  {
+    "IconPath": "avares://SampleTestApp.Core/Assets/png/tomato.png",
+    "Name": "Помидоры",
+    "Quantity": 40
+  }
+]

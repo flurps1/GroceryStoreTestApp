@@ -11,24 +11,29 @@
     </Design.DataContext>
     
     <DockPanel>
-        <ScrollViewer Margin="10">
-            <ItemsControl ItemsSource="{Binding Products}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                  VerticalScrollBarVisibility="Auto">
+        <ItemsControl ItemsSource="{Binding Products}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" 
+                               HorizontalAlignment="Left"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
                 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate DataType="core:ProductViewModel">
-                        <core:ProductCard Icon="{Binding IconPath}"
-                                                   Title="{Binding Name}"
-                                                   Quantity="{Binding Quantity, StringFormat=' : {0} шт'}"
-                                                   Command="{Binding BuyCommand}"
-                            />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="core:ProductViewModel">
+                    <core:ProductCard 
+                        Height="250" 
+                        Margin="5"
+                        Icon="{Binding IconPath}"
+                        Title="{Binding Name}"
+                        Quantity="{Binding Quantity, StringFormat=' : {0} шт'}"
+                        Command="{Binding BuyCommand}"
+                    />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
     </DockPanel>
 </UserControl>
