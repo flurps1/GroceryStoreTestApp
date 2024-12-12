@@ -2,33 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:sampleTestApp="clr-namespace:SampleTestApp"
-        xmlns:controls="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
         xmlns:core="clr-namespace:SampleTestApp.Core"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="SampleTestApp.Core.MainWindow"
-        x:DataType="core:MainWindowViewModel">
-    <DockPanel>
-        <controls:NavigationView IsPaneOpen="{Binding IsMinimal}"
-                                 IsSettingsVisible="False"
-                                 PaneDisplayMode="Left"
-                                 CompactPaneLength="45"
-                                 SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                                 MenuItemsSource="{Binding Items}"
-                                 MenuItemTemplateSelector="{x:Static core:MenuItemTemplateSelector.Instance}">
-            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                                Background="#4e4e4e" Margin="10" CornerRadius="10">
-                    <ContentControl.Content>
-                        <StackPanel Orientation="Horizontal" Margin="10">
-                        <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
-                        <TextBlock Text="{Binding CurrentPage.PageName, StringFormat=' Current page is {0}'}"/>
-                        </StackPanel>
-                    </ContentControl.Content>
-                </ContentControl>
-                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                                Content="{CompiledBinding CurrentPage}" />
-        </StackPanel>
-        </controls:NavigationView>
-    </DockPanel>
+        x:Class="SampleTestApp.Core.MainWindow">
+    <core:MainView/>
 </Window>

@@ -3,14 +3,14 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace SampleTestApp.Core;
 
-public partial class MainWindowViewModel : ViewModelBase
+public partial class MainViewModel : ViewModelBase
 {
     private readonly PageFactory _pageFactory;
     [ObservableProperty] private MenuItem? _selectedItem;
     [ObservableProperty] private PageViewModel? _currentPage;
     [ObservableProperty] private bool _isMinimal;
     
-    public MainWindowViewModel(PageFactory pageFactory)
+    public MainViewModel(PageFactory pageFactory)
     {
         _pageFactory = pageFactory;
 

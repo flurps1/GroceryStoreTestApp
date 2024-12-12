@@ -42,6 +42,10 @@
     <Compile Update="Tools\Controls\CustomTextBox.cs">
       <DependentUpon>CustomTextBox.axaml</DependentUpon>
     </Compile>
+    <Compile Update="MainView.axaml.cs">
+      <DependentUpon>MainView.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

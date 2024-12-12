@@ -20,7 +20,7 @@ public partial class App : Application
         collection.AddSingleton<ProductServices.IProductService, ProductServices.ProductService>();
         collection.AddSingleton<ICartService, CartService>();
         
-        collection.AddSingleton<MainWindowViewModel>();
+        collection.AddSingleton<MainViewModel>();
         collection.AddSingleton<ShopViewModel>();
         collection.AddSingleton<CartViewModel>();
         collection.AddSingleton<ProfileViewModel>();
@@ -39,17 +39,20 @@ public partial class App : Application
 
         var provider = collection.BuildServiceProvider();
 
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = provider.GetRequiredService<MainWindowViewModel>()
-            };
-        else if (ApplicationLifetime is ISingleViewApplicationLifetime singleView)
+        switch (ApplicationLifetime)
         {
-            singleView.MainView = new MainViewForBrowser
-            {
-                DataContext = provider.GetRequiredService<MainWindowViewModel>()
-            };
+            case IClassicDesktopStyleApplicationLifetime desktop:
+                desktop.MainWindow = new MainWindow
+                {
+                    DataContext = provider.GetRequiredService<MainViewModel>()
+                };
+                break;
+            case ISingleViewApplicationLifetime singleView:
+                singleView.MainView = new MainView
+                {
+                    DataContext = provider.GetRequiredService<MainViewModel>()
+                };
+                break;
         }
 
         base.OnFrameworkInitializationCompleted();

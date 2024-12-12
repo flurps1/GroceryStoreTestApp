@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace SampleTestApp.Core;
 
-public partial class MainViewForBrowser : UserControl
+public partial class MainView : UserControl
 {
-    public MainViewForBrowser()
+    public MainView()
     {
         InitializeComponent();
     }

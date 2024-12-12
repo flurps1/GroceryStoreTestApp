@@ -5,8 +5,8 @@
              xmlns:controls="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
              xmlns:core="clr-namespace:SampleTestApp.Core"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="SampleTestApp.Core.MainViewForBrowser"
-             x:DataType="core:MainWindowViewModel">
+             x:Class="SampleTestApp.Core.MainView"
+             x:DataType="core:MainViewModel">
     <DockPanel>
         <controls:NavigationView IsPaneOpen="{Binding IsMinimal}"
                                  IsSettingsVisible="False"
