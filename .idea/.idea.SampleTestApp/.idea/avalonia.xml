@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="SampleTestApp.Core/App.axaml" value="Platforms/SampleTestApp.Desktop/SampleTestApp.Desktop.csproj" />
+        <entry key="SampleTestApp.Core/MainView.axaml" value="SampleTestApp.Design/SampleTestApp.Design.csproj" />
         <entry key="SampleTestApp.Core/MainWindow.axaml" value="Platforms/SampleTestApp.Desktop/SampleTestApp.Desktop.csproj" />
         <entry key="SampleTestApp.Core/Shell/Pages/Cart/CartView.axaml" value="Platforms/SampleTestApp.Browser/SampleTestApp.Browser.csproj" />
         <entry key="SampleTestApp.Core/Shell/Pages/Profile/ProfileView.axaml" value="Platforms/SampleTestApp.Browser/SampleTestApp.Browser.csproj" />
