@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using Avalonia;
-using Avalonia.ReactiveUI;
 
 namespace SampleTestApp.Core;
 
@@ -38,7 +37,6 @@ internal sealed class Program
             // Mac
             .With(new AvaloniaNativePlatformOptions { OverlayPopups = true })
             .WithInterFont()
-            .LogToTrace()
-            .UseReactiveUI();
+            .LogToTrace();
     }
 }

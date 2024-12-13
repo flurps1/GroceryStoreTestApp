@@ -6,12 +6,8 @@
         <Nullable>enable</Nullable>
         <RootNamespace>SampleTestApp.Browser</RootNamespace>
     </PropertyGroup>
-
     <ItemGroup>
         <PackageReference Include="Avalonia.Browser"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <ProjectReference Include="..\..\SampleTestApp.Core\SampleTestApp.Core.csproj" />
     </ItemGroup>
 </Project>
