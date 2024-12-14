@@ -8,42 +8,49 @@
              x:Class="SampleTestApp.Core.CartView"
              x:DataType="sampleTestApp:CartViewModel">
     <Design.DataContext>
-        <sampleTestApp:CartViewModel/>
+        <sampleTestApp:CartViewModel />
     </Design.DataContext>
-    
-    <DockPanel>
-        <!-- Заголовок -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 10, 0, 10" DockPanel.Dock="Top">
-            <TextBlock Text="Total products: " FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,5,0"/>
-            <TextBlock Text="{Binding TotalProducts}" VerticalAlignment="Center" />
-        </StackPanel>
 
-        <!-- Таблица с товарами -->
+    <DockPanel>
         <ScrollViewer>
-            <DataGrid ItemsSource="{Binding CartItems}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="#" Binding="{Binding Index}" Width="50" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" IsReadOnly="True"/>
-                    <DataGridTemplateColumn Header="Quantity" Width="100">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBox Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                         HorizontalAlignment="Stretch"
-                                         VerticalAlignment="Center"
-                                         KeyDown="OnTextBoxKeyDown"
-                                         TextAlignment="Center"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Available" Width="100" IsReadOnly="True">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <controls:SymbolIcon Symbol="{Binding AvailabilitySymbol}" Width="20" Height="20"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+            <StackPanel Spacing="10" Margin="25">
+                <Border CornerRadius="25" BorderThickness="1"
+                        BorderBrush="{DynamicResource SystemAccentColorDark1}"
+                        Padding="10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10, 10, 0, 10"
+                                DockPanel.Dock="Top">
+                        <TextBlock Text="Total products: " FontWeight="Bold" VerticalAlignment="Center"
+                                   Margin="0,0,5,0" />
+                        <TextBlock Text="{Binding TotalProducts}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+
+                <DataGrid ItemsSource="{Binding CartItems}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="#" Binding="{Binding Index}" Width="50" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" IsReadOnly="True" />
+                        <DataGridTemplateColumn Header="Quantity" Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        KeyDown="OnTextBoxKeyDown"
+                                        TextAlignment="Center" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Available" Width="100" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <controls:SymbolIcon Symbol="{Binding AvailabilitySymbol}" Width="20" Height="20" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

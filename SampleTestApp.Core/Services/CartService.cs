@@ -25,7 +25,8 @@ public class CartService : ICartService
             CartItems.Add(new CartItemViewModel
             {
                 Name = name,
-                Quantity = quantity
+                Quantity = quantity,
+                Index = CartItems.Count + 1,
             });
         }
     }
