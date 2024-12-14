@@ -14,6 +14,10 @@ public class MenuItemTemplateSelector : DataTemplateSelector
             new NavigationViewItem
             {
                 Content = item.Title,
+                IconSource = new BitmapIconSource
+                {
+                    UriSource = item.IconUri
+                }
             });
     }
 

@@ -15,8 +15,11 @@ public partial class CartItemViewModel : ViewModelBase
         get => _quantity;
         set
         {
-            if (SetProperty(ref _quantity, value))
+            if (value >= 0)
+            {
+                SetProperty(ref _quantity, value);
                 OnPropertyChanged(nameof(AvailabilitySymbol));
+            }
         }
     }
     public bool IsAvailable

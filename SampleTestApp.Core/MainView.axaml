@@ -17,7 +17,7 @@
                                  MenuItemTemplateSelector="{x:Static core:MenuItemTemplateSelector.Instance}">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                                Background="#4e4e4e" Margin="10" CornerRadius="10">
+                                Background="{DynamicResource SystemAccentColor}" Margin="10" CornerRadius="10">
                     <ContentControl.Content>
                         <StackPanel Orientation="Horizontal" Margin="10">
                             <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->

@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="using:SampleTestApp"
                     xmlns:core="clr-namespace:SampleTestApp.Core">
     <Design.PreviewWith>
         <core:CustomTextBox />
@@ -38,8 +37,7 @@
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Content="{TemplateBinding Content}"
-                            Padding="{TemplateBinding Padding}">
-          </ContentPresenter>
+                            Padding="{TemplateBinding Padding}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
@@ -70,8 +68,7 @@
           <ContentPresenter x:Name="PART_ContentPresenter"
                             Background="{TemplateBinding Background}"
                             Content="{TemplateBinding Content}"
-                            Padding="{TemplateBinding Padding}">
-          </ContentPresenter>
+                            Padding="{TemplateBinding Padding}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
@@ -108,8 +105,7 @@
               BorderThickness="{TemplateBinding BorderThickness}"
               CornerRadius="{TemplateBinding CornerRadius}"
               MinWidth="{TemplateBinding MinWidth}"
-              MinHeight="{TemplateBinding MinHeight}">
-            </Border>
+              MinHeight="{TemplateBinding MinHeight}" />
 
             <Border
               Margin="{TemplateBinding BorderThickness}">

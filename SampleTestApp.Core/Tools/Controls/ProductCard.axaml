@@ -1,22 +1,21 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="using:SampleTestApp"
         xmlns:core="clr-namespace:SampleTestApp.Core">
     <Design.PreviewWith>
         <core:ProductCard />
     </Design.PreviewWith>
 
     <Style Selector="core|ProductCard">
-        <Setter Property="Background" Value="Gray"></Setter>
+        <Setter Property="Background" Value="Gray" />
         <!-- Set Defaults -->
         <Setter Property="Template">
             <ControlTemplate>
                 <Border BorderThickness="1"
-                        BorderBrush="Gray"
+                        BorderBrush="{DynamicResource AccentButtonBackground}"
                         CornerRadius="25"
-                        Padding="10"
-                        Margin="5">
-                    <StackPanel Orientation="Vertical">
+                        Padding="20"
+                        Margin="10">
+                    <StackPanel Orientation="Vertical" Spacing="10">
                         <Image Source="{TemplateBinding Icon}" Width="150" Height="150"/>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <TextBlock Text="{TemplateBinding Title}"
