@@ -8,11 +8,11 @@ public partial class ShopViewModel : PageViewModel
 {
     [ObservableProperty] private ObservableCollection<ProductViewModel> _products;
 
-    private readonly ProductServices.IProductService _productService;
+    private readonly IProductService _productService;
     private readonly ICartService _cartService;
     private readonly IProductViewModelFactory _productViewModelFactory;
 
-    public ShopViewModel(ProductServices.IProductService productService,
+    public ShopViewModel(IProductService productService,
         ICartService cartService,
         IProductViewModelFactory productViewModelFactory)
     {

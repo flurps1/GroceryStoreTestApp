@@ -1,5 +1,8 @@
 ﻿using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace SampleTestApp.Core;
 
@@ -8,47 +11,68 @@ public partial class CartViewModel : PageViewModel
     [ObservableProperty] private ObservableCollection<CartItemViewModel> _cartItems;
     [ObservableProperty] private int _totalProducts;
 
-    private readonly ProductServices.IProductService _productService;
+    private readonly List<ProductModel> _products;
+    private readonly ICartService _cartService;
 
-    public CartViewModel(ICartService cartService, ProductServices.IProductService productService)
+    public CartViewModel(ICartService cartService, IProductService productService)
     {
         PageName = ApplicationPageNames.Cart;
-        _productService = productService;
+        _cartService = cartService;
         CartItems = cartService.CartItems;
+        _products = productService.GetProductsAsync().Result;
 
-        CartItems.CollectionChanged += (s, e) =>
-        {
-            if (e.NewItems != null)
-            {
-                foreach (CartItemViewModel newItem in e.NewItems)
-                {
-                    newItem.PropertyChanged += (_, _) => _ = UpdateAvailability();
-                }
-            }
+        CartItems.CollectionChanged += OnCartItemsCollectionChanged;
+        SubscribeToCartItems(CartItems);
 
-            TotalProducts = Enumerable.Sum<CartItemViewModel>(CartItems, x => x.Quantity);
-            _ = UpdateAvailability();
-        };
-
-        foreach (var item in CartItems)
-        {
-            item.PropertyChanged += (_, _) => _ = UpdateAvailability();
-        }
-
-        _ = UpdateAvailability();
+        UpdateProducts();
     }
 
-    private async Task UpdateAvailability()
+    private void OnCartItemsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        var products = await _productService.GetProductsAsync();
-
-        foreach (var cartItem in CartItems)
+        if (e.NewItems != null)
         {
-            var product = products.FirstOrDefault(p => p.Name == cartItem.Name);
+            foreach (CartItemViewModel newItem in e.NewItems)
+            {
+                newItem.PropertyChanged += OnCartItemPropertyChanged;
+            }
+        }
 
+        if (e.OldItems != null)
+        {
+            foreach (CartItemViewModel oldItem in e.OldItems)
+            {
+                oldItem.PropertyChanged -= OnCartItemPropertyChanged;
+            }
+        }
+
+        UpdateProducts();
+    }
+
+    private void OnCartItemPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(CartItemViewModel.Quantity))
+        {
+            UpdateProducts();
+        }
+    }
+
+    private void SubscribeToCartItems(ObservableCollection<CartItemViewModel> items)
+    {
+        foreach (var item in items)
+        {
+            item.PropertyChanged += OnCartItemPropertyChanged;
+        }
+    }
+
+    private void UpdateProducts()
+    {
+        TotalProducts = CartItems.Sum(x => x.Quantity);
+        foreach (var item in CartItems)
+        {
+            var product = _products.FirstOrDefault(p => p.Name == item.Name);
             if (product != null)
             {
-                cartItem.IsAvailable = cartItem.Quantity <= product.Quantity;
+                item.IsAvailable = item.Quantity <= product.Quantity;
             }
         }
     }
