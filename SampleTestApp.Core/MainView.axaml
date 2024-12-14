@@ -20,10 +20,12 @@
                                 Background="{DynamicResource SystemAccentColor}" Margin="10" CornerRadius="10">
                     <ContentControl.Content>
                         <StackPanel Orientation="Horizontal" Margin="10">
-                            <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
                             <TextBlock Text="{Binding CurrentPage.PageName, StringFormat=' Current page is {0}'}"/>
                         </StackPanel>
                     </ContentControl.Content>
+                    <!-- <ContentControl.Content> -->
+                    <!--     <core:Header PageName="{Binding CurrentPage.PageName}"/> -->
+                    <!-- </ContentControl.Content> -->
                 </ContentControl>
                 <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                 Content="{CompiledBinding CurrentPage}" />
