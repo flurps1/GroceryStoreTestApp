@@ -10,9 +10,8 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border CornerRadius="25"
-                        BorderThickness="1"
-                        BorderBrush="{DynamicResource SystemAccentColorDark1}">
-                    <StackPanel Orientation="Horizontal">
+                        BorderThickness="1">
+                    <StackPanel Orientation="Horizontal" Margin="15">
                         <TextBlock Text="Current page is: " />
                         <TextBlock Text="{TemplateBinding PageName}" />
                     </StackPanel>

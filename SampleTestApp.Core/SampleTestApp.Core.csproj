@@ -17,6 +17,7 @@
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.2" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.2.2" />
+    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.2.0.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0-preview3"/>
     <PackageReference Include="FluentAvaloniaUI" Version="2.2.0"/>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0"/>
@@ -31,9 +32,6 @@
     <Compile Update="Tools\Controls\ProductCard.axaml.cs">
       <DependentUpon>ProductCard.axaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Tools\Controls\CustomTextBox.cs">
-      <DependentUpon>CustomTextBox.axaml</DependentUpon>
     </Compile>
     <Compile Update="MainView.axaml.cs">
       <DependentUpon>MainView.axaml</DependentUpon>

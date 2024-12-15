@@ -14,7 +14,7 @@ public partial class ProfileViewModel : PageViewModel
     [ObservableProperty] private string _phoneNumber;
     [ObservableProperty] private string _email;
     [ObservableProperty] private float _balance;
-    [ObservableProperty] private bool _isReadOnly = true;
+    [ObservableProperty] private bool _isEditMode = true;
 
     public bool IsPhoneValid => Regex.IsMatch(PhoneNumber ?? string.Empty, @"^\+?\d{10,15}$");
     public bool IsEmailValid => Regex.IsMatch(Email ?? string.Empty, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
@@ -29,13 +29,26 @@ public partial class ProfileViewModel : PageViewModel
         LastName = "Иванов";
         MiddleName = "Иванович";
         FullName = $"{FirstName} {MiddleName} {LastName}";
-        PhoneNumber = "+71234567890";
+        PhoneNumber = "+71234445566";
         Email = "ivan@test.com";
     }
 
     [RelayCommand]
     private void ToggleEditMode()
     {
-        IsReadOnly = !IsReadOnly;
+        IsEditMode = !IsEditMode;
+    }
+
+    partial void OnFirstNameChanged(string value)
+    {
+        FullName = $"{value} {MiddleName} {LastName}";
+    }
+    partial void OnMiddleNameChanged(string value)
+    {
+        FullName = $"{FirstName} {value} {LastName}";
+    }
+    partial void OnLastNameChanged(string value)
+    {
+        FullName = $"{FirstName} {MiddleName} {value}";
     }
 }

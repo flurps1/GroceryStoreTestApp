@@ -15,43 +15,49 @@
             <StackPanel Margin="10" HorizontalAlignment="Center" Spacing="10">
                 <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="30">
                     <StackPanel>
-                    <Image Source="../../../Assets/png/profile-picture.png" Width="200" Height="200"/>
-                    <StackPanel>
-                        <TextBlock Text="{Binding FullName}" FontSize="16" FontWeight="Bold" TextAlignment="Center" />
-                        <TextBlock Text="{Binding Age, StringFormat='{}{0} лет'}" FontSize="14" TextAlignment="Center" />
-                    </StackPanel>
+                        <Image Source="../../../Assets/png/profile-picture.png" Width="200" Height="200" />
+                        <StackPanel>
+                            <TextBlock Text="{Binding FullName}" FontSize="16" FontWeight="Bold" TextAlignment="Center" />
+                            <TextBlock Text="{Binding Age, StringFormat='{}{0} лет'}" FontSize="14"
+                                       TextAlignment="Center" />
+                        </StackPanel>
                     </StackPanel>
                 </Border>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Margin="10" Spacing="10">
+                <ToggleSwitch 
+                    Command="{Binding ToggleEditModeCommand}"
+                    OnContent="" OffContent=""
+                    Content="Edit mode"
+                    IsChecked="True"/>
                 <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="15">
                     <StackPanel Spacing="5">
-                    <Grid ColumnDefinitions="*, *">
-                        <StackPanel>
-                        <TextBlock Text="Имя: "/>
-                        <TextBlock Text="Фамилия: "/>
-                        <TextBlock Text="Отчество:"/>
-                        </StackPanel>
-                        <StackPanel Grid.Column="1">
-                        <TextBlock Text="{Binding FirstName}"/>
-                        <TextBlock Text="{Binding LastName}"/>
-                        <TextBlock Text="{Binding MiddleName}"/>
-                        </StackPanel>
-                    </Grid>
+                        <Grid ColumnDefinitions="*, *">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="Имя: " />
+                                <TextBlock Text="Фамилия: " />
+                                <TextBlock Text="Отчество:" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                <TextBox Text="{Binding FirstName}" IsEnabled="{Binding IsEditMode}"/>
+                                <TextBox Text="{Binding LastName}" IsEnabled="{Binding IsEditMode}"/>
+                                <TextBox Text="{Binding MiddleName}" IsEnabled="{Binding IsEditMode}"/>
+                            </StackPanel>
+                        </Grid>
                     </StackPanel>
                 </Border>
 
                 <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="15">
                     <Grid ColumnDefinitions="*, *">
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="Телефон: "/>
-                            <TextBlock Text="Email: "/>
+                            <TextBlock Text="Телефон: " />
+                            <TextBlock Text="Email: " />
                         </StackPanel>
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                            <MaskedTextBox Mask="" Text="{Binding PhoneNumber}" IsEnabled="{Binding IsReadOnly}"/>
-                            <TextBox Text="{Binding Email}" IsEnabled="{Binding IsReadOnly}"/>
-                            <!-- <sampleTestApp:CustomTextBox Text="{Binding Email}"/> -->
+                            <MaskedTextBox ResetOnSpace="False" Mask="+7(999) 999-00-00"
+                                           Watermark="+7(LLL) 999-0000" Text="{Binding PhoneNumber}" IsEnabled="{Binding IsEditMode}"/>
+                            <TextBox Text="{Binding Email}" IsEnabled="{Binding IsEditMode}" />
                         </StackPanel>
                     </Grid>
                 </Border>
@@ -59,12 +65,12 @@
                 <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="15">
                     <Grid ColumnDefinitions="*, *">
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="Возраст: "/>
-                            <TextBlock Text="Баланс: "/>
+                            <TextBlock Text="Возраст: " />
+                            <TextBlock Text="Баланс: " />
                         </StackPanel>
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                            <TextBox Text="{Binding Age, StringFormat=' {0} лет'}" IsEnabled="{Binding IsReadOnly}"/>
-                            <TextBox Text="{Binding Balance, StringFormat=' {0}р'}" IsEnabled="{Binding IsReadOnly}"/>
+                            <TextBox Text="{Binding Age, StringFormat=' {0} лет'}" IsEnabled="{Binding IsEditMode}"/>
+                            <TextBox Text="{Binding Balance, StringFormat=' {0}р'}" IsEnabled="{Binding IsEditMode}" />
                         </StackPanel>
                     </Grid>
                 </Border>

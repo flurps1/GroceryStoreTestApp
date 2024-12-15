@@ -6,12 +6,13 @@
         <entry key="SampleTestApp.Core/App.axaml" value="Platforms/SampleTestApp.Desktop/SampleTestApp.Desktop.csproj" />
         <entry key="SampleTestApp.Core/MainView.axaml" value="SampleTestApp.Design/SampleTestApp.Design.csproj" />
         <entry key="SampleTestApp.Core/MainWindow.axaml" value="Platforms/SampleTestApp.Desktop/SampleTestApp.Desktop.csproj" />
-        <entry key="SampleTestApp.Core/Shell/Pages/Cart/CartView.axaml" value="Platforms/SampleTestApp.Browser/SampleTestApp.Browser.csproj" />
+        <entry key="SampleTestApp.Core/Shell/Pages/Cart/CartView.axaml" value="SampleTestApp.Design/SampleTestApp.Design.csproj" />
         <entry key="SampleTestApp.Core/Shell/Pages/Profile/ProfileView.axaml" value="Platforms/SampleTestApp.Browser/SampleTestApp.Browser.csproj" />
         <entry key="SampleTestApp.Core/Shell/Pages/Shop/ShopView.axaml" value="SampleTestApp.Design/SampleTestApp.Design.csproj" />
-        <entry key="SampleTestApp.Core/Tools/Controls/CustomTextBox.axaml" value="Platforms/SampleTestApp.Browser/SampleTestApp.Browser.csproj" />
+        <entry key="SampleTestApp.Core/Tools/Controls/CustomTextBox.axaml" value="SampleTestApp.Design/SampleTestApp.Design.csproj" />
+        <entry key="SampleTestApp.Core/Tools/Controls/Header.axaml" value="SampleTestApp.Design/SampleTestApp.Design.csproj" />
         <entry key="SampleTestApp.Core/Tools/Controls/MainViewForBrowser.axaml" value="Platforms/SampleTestApp.Browser/SampleTestApp.Browser.csproj" />
-        <entry key="SampleTestApp.Core/Tools/Controls/ProductCard.axaml" value="Platforms/SampleTestApp.Browser/SampleTestApp.Browser.csproj" />
+        <entry key="SampleTestApp.Core/Tools/Controls/ProductCard.axaml" value="SampleTestApp.Design/SampleTestApp.Design.csproj" />
         <entry key="SampleTestApp.Design/App.axaml" value="SampleTestApp.Design/SampleTestApp.Design.csproj" />
         <entry key="SampleTestApp/App.axaml" value="SampleTestApp/SampleTestApp.csproj" />
         <entry key="SampleTestApp/MainWindow.axaml" value="SampleTestApp/SampleTestApp.csproj" />

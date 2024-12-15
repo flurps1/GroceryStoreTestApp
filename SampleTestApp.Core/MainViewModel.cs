@@ -35,6 +35,6 @@ public partial class MainViewModel : ViewModelBase
     {
         IsMinimal = !value;
     }
-    
-    public ObservableCollection<MenuItem> Items { get; }
+
+    private ObservableCollection<MenuItem> Items { get; }
 }
