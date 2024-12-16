@@ -30,8 +30,10 @@ public partial class ShopViewModel : PageViewModel
         var productModels = await _productService.GetProductsAsync();
         foreach (var product in productModels)
         {
-            var productViewModel = _productViewModelFactory.Create(ImageHelper.LoadFromResource(new Uri(product.IconPath)), product.Name, product.Quantity);
-            
+            var productViewModel =
+                _productViewModelFactory.Create(ImageHelper.LoadFromResource(new Uri(product.IconPath)), product.Name,
+                    product.Quantity);
+
             productViewModel.BuyCommand = new RelayCommand(() =>
             {
                 if (productViewModel.Quantity > 0)

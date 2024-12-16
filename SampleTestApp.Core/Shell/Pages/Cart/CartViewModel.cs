@@ -12,12 +12,10 @@ public partial class CartViewModel : PageViewModel
     [ObservableProperty] private int _totalProducts;
 
     private readonly List<ProductModel> _products;
-    private readonly ICartService _cartService;
 
     public CartViewModel(ICartService cartService, IProductService productService)
     {
         PageName = ApplicationPageNames.Cart;
-        _cartService = cartService;
         CartItems = cartService.CartItems;
         _products = productService.GetProductsAsync().Result;
 

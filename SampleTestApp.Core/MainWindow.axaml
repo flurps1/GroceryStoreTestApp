@@ -5,5 +5,5 @@
         xmlns:core="clr-namespace:SampleTestApp.Core"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SampleTestApp.Core.MainWindow">
-    <core:MainView/>
+    <core:MainView />
 </Window>

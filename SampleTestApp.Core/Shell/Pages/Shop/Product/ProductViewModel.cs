@@ -9,8 +9,7 @@ public partial class ProductViewModel : PageViewModel
     public string Name { get; }
     public Bitmap? IconPath { get; }
 
-    [ObservableProperty]
-    private int _quantity;
+    [ObservableProperty] private int _quantity;
 
     public ProductViewModel(Bitmap iconPath, string name, int quantity)
     {

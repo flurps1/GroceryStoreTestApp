@@ -16,13 +16,13 @@
                         Padding="20"
                         Margin="10">
                     <StackPanel Orientation="Vertical" Spacing="10">
-                        <Image Source="{TemplateBinding Icon}" Width="150" Height="150"/>
+                        <Image Source="{TemplateBinding Icon}" Width="150" Height="150" />
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <TextBlock Text="{TemplateBinding Title}"
-                                       FontWeight="Bold"/>
+                                       FontWeight="Bold" />
                             <TextBlock Text="{TemplateBinding Quantity}" />
                         </StackPanel>
-                                
+
                         <Button Content="Buy"
                                 Command="{TemplateBinding Command}"
                                 HorizontalAlignment="Stretch"

@@ -15,16 +15,16 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         var collection = new ServiceCollection();
-        
+
         collection.AddSingleton(new HttpClient());
         collection.AddSingleton<IProductService, ProductServices>();
         collection.AddSingleton<ICartService, CartService>();
-        
+
         collection.AddSingleton<MainViewModel>();
         collection.AddSingleton<ShopViewModel>();
         collection.AddSingleton<CartViewModel>();
         collection.AddSingleton<ProfileViewModel>();
-        
+
 
         collection.AddSingleton<Func<ApplicationPageNames, PageViewModel>>(x => name => name switch
         {

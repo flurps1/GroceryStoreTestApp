@@ -10,6 +10,7 @@ public partial class CartItemViewModel : ViewModelBase
     private bool _isAvailable;
 
     private int _quantity;
+
     public int Quantity
     {
         get => _quantity;
@@ -22,6 +23,7 @@ public partial class CartItemViewModel : ViewModelBase
             }
         }
     }
+
     public bool IsAvailable
     {
         get => _isAvailable;

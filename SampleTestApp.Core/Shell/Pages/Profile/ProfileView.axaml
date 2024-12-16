@@ -26,11 +26,11 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1" Margin="10" Spacing="10">
-                <ToggleSwitch 
+                <ToggleSwitch
                     Command="{Binding ToggleEditModeCommand}"
                     OnContent="" OffContent=""
                     Content="Edit mode"
-                    IsChecked="True"/>
+                    IsChecked="True" />
                 <Border BorderBrush="Gray" BorderThickness="1" Padding="10" CornerRadius="15">
                     <StackPanel Spacing="5">
                         <Grid ColumnDefinitions="*, *">
@@ -40,9 +40,9 @@
                                 <TextBlock Text="Отчество:" />
                             </StackPanel>
                             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                <TextBox Text="{Binding FirstName}" IsEnabled="{Binding IsEditMode}"/>
-                                <TextBox Text="{Binding LastName}" IsEnabled="{Binding IsEditMode}"/>
-                                <TextBox Text="{Binding MiddleName}" IsEnabled="{Binding IsEditMode}"/>
+                                <TextBox Text="{Binding FirstName}" IsEnabled="{Binding IsEditMode}" />
+                                <TextBox Text="{Binding LastName}" IsEnabled="{Binding IsEditMode}" />
+                                <TextBox Text="{Binding MiddleName}" IsEnabled="{Binding IsEditMode}" />
                             </StackPanel>
                         </Grid>
                     </StackPanel>
@@ -56,7 +56,8 @@
                         </StackPanel>
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <MaskedTextBox ResetOnSpace="False" Mask="+7(999) 999-00-00"
-                                           Watermark="+7(LLL) 999-0000" Text="{Binding PhoneNumber}" IsEnabled="{Binding IsEditMode}"/>
+                                           Watermark="+7(LLL) 999-0000" Text="{Binding PhoneNumber}"
+                                           IsEnabled="{Binding IsEditMode}" />
                             <TextBox Text="{Binding Email}" IsEnabled="{Binding IsEditMode}" />
                         </StackPanel>
                     </Grid>
@@ -69,7 +70,7 @@
                             <TextBlock Text="Баланс: " />
                         </StackPanel>
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                            <TextBox Text="{Binding Age, StringFormat=' {0} лет'}" IsEnabled="{Binding IsEditMode}"/>
+                            <TextBox Text="{Binding Age, StringFormat=' {0} лет'}" IsEnabled="{Binding IsEditMode}" />
                             <TextBox Text="{Binding Balance, StringFormat=' {0}р'}" IsEnabled="{Binding IsEditMode}" />
                         </StackPanel>
                     </Grid>

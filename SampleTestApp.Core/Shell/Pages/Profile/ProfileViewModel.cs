@@ -43,10 +43,12 @@ public partial class ProfileViewModel : PageViewModel
     {
         FullName = $"{value} {MiddleName} {LastName}";
     }
+
     partial void OnMiddleNameChanged(string value)
     {
         FullName = $"{FirstName} {value} {LastName}";
     }
+
     partial void OnLastNameChanged(string value)
     {
         FullName = $"{FirstName} {MiddleName} {value}";
