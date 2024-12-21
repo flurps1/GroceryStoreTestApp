@@ -15,20 +15,25 @@ public class ProductServices : IProductService
 {
     private readonly HttpClient _httpClient;
     private List<ProductModel>? _cachedProducts;
+    private readonly JsonSerializerOptions _jsonOptions;
 
     public ProductServices(HttpClient httpClient)
     {
         _httpClient = httpClient;
         _httpClient.BaseAddress = new Uri("https://localhost:7211/");
+        _jsonOptions = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        };
     }
 
     public async Task<List<ProductModel>> GetProductsAsync()
     {
-        // Очищаем кэш при каждом запросе, так как данные могли измениться
         _cachedProducts = null;
         
         var response = await _httpClient.GetStringAsync("Products");
-        _cachedProducts = JsonSerializer.Deserialize<List<ProductModel>>(response)
+        _cachedProducts = JsonSerializer.Deserialize<List<ProductModel>>(response, _jsonOptions)
                           ?? throw new InvalidOperationException();
         return _cachedProducts;
     }
@@ -36,7 +41,7 @@ public class ProductServices : IProductService
     public async Task<ProductModel> GetProductByIdAsync(int id)
     {
         var response = await _httpClient.GetStringAsync($"Products/{id}");
-        return JsonSerializer.Deserialize<ProductModel>(response)
+        return JsonSerializer.Deserialize<ProductModel>(response, _jsonOptions)
                ?? throw new InvalidOperationException();
     }
 
@@ -44,18 +49,17 @@ public class ProductServices : IProductService
     {
         var product = new ProductModel
         {
-            name = name,
-            imageUrl = iconPath,
-            quantity = quantity
+            Name = name,
+            ImageUrl = iconPath,
+            Quantity = quantity
         };
 
-        var json = JsonSerializer.Serialize(product);
+        var json = JsonSerializer.Serialize(product, _jsonOptions);
         var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
         
         var response = await _httpClient.PostAsync("Products", content);
         response.EnsureSuccessStatusCode();
         
-        // Очищаем кэш после создания
         _cachedProducts = null;
     }
 
@@ -65,8 +69,6 @@ public class ProductServices : IProductService
             $"Products/{id}?newName={Uri.EscapeDataString(newName)}", 
             null);
         response.EnsureSuccessStatusCode();
-        
-        // Очищаем кэш после обновления
         _cachedProducts = null;
     }
 
@@ -74,15 +76,13 @@ public class ProductServices : IProductService
     {
         var response = await _httpClient.DeleteAsync($"Products/{id}");
         response.EnsureSuccessStatusCode();
-        
-        // Очищаем кэш после удаления
         _cachedProducts = null;
     }
 }
 
 public class ProductModel
 {
-    public string imageUrl { get; set; } = string.Empty;
-    public string name { get; set; } = string.Empty;
-    public int quantity { get; set; }
+    public string ImageUrl { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public int Quantity { get; set; }
 }

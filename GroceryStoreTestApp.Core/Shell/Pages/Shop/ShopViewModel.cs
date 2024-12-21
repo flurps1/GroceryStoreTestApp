@@ -31,8 +31,8 @@ public partial class ShopViewModel : PageViewModel
         foreach (var product in productModels)
         {
             var productViewModel =
-                _productViewModelFactory.Create(ImageHelper.LoadFromResource(new Uri(product.imageUrl)), product.name,
-                    product.quantity);
+                _productViewModelFactory.Create(ImageHelper.LoadFromResource(new Uri(product.ImageUrl)), product.Name,
+                    product.Quantity);
 
             productViewModel.BuyCommand = new RelayCommand(() =>
             {

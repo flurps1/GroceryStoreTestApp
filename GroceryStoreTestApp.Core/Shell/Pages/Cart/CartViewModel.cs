@@ -66,10 +66,10 @@ public partial class CartViewModel : PageViewModel
         TotalProducts = CartItems.Sum(x => x.Quantity);
         foreach (var item in CartItems)
         {
-            var product = _products.FirstOrDefault(p => p.name == item.Name);
+            var product = _products.FirstOrDefault(p => p.Name == item.Name);
             if (product != null)
             {
-                item.IsAvailable = item.Quantity <= product.quantity;
+                item.IsAvailable = item.Quantity <= product.Quantity;
             }
         }
     }
