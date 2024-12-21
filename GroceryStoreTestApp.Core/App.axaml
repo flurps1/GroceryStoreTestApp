@@ -1,0 +1,17 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:styling="clr-namespace:FluentAvalonia.Styling;assembly=FluentAvalonia"
+             x:Class="GroceryStoreTestApp.Core.App"
+             xmlns:core="clr-namespace:GroceryStoreTestApp.Core"
+             RequestedThemeVariant="Default">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <core:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <styling:FluentAvaloniaTheme PreferSystemTheme="True" PreferUserAccentColor="True" />
+        <StyleInclude Source="Tools/Controls/ProductCard.axaml" />
+    </Application.Styles>
+</Application>

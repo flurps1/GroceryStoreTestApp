@@ -1,0 +1,35 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:core="clr-namespace:GroceryStoreTestApp.Core">
+    <Design.PreviewWith>
+        <core:ProductCard />
+    </Design.PreviewWith>
+
+    <Style Selector="core|ProductCard">
+        <Setter Property="Background" Value="Gray" />
+        <!-- Set Defaults -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border BorderThickness="1"
+                        BorderBrush="{DynamicResource AccentButtonBackground}"
+                        CornerRadius="25"
+                        Padding="20"
+                        Margin="10">
+                    <StackPanel Orientation="Vertical" Spacing="10">
+                        <Image Source="{TemplateBinding Icon}" Width="150" Height="150" />
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="{TemplateBinding Title}"
+                                       FontWeight="Bold" />
+                            <TextBlock Text="{TemplateBinding Quantity}" />
+                        </StackPanel>
+
+                        <Button Content="Buy"
+                                Command="{TemplateBinding Command}"
+                                HorizontalAlignment="Stretch"
+                                Margin="0,10,0,0" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
